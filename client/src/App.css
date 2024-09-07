@@ -1,0 +1,22 @@
+
+label{
+
+  left: 10px;
+  transition:all 0.2s;
+}
+
+
+input:focus+label,input:valid+label{
+  position: absolute;
+  top: -10px;
+  background: #cbd5e1;
+  color: #1d4ed8;
+}
+input:focus+.signnameLabel,input:valid+.signnameLabel{
+  position: absolute;
+  top: -20px;
+  background: #cbd5e1;
+  color:#1d4ed8 ;
+}
+
+
