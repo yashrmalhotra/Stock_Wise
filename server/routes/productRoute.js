@@ -15,6 +15,7 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage })
 router.get("/", async (req, res) => {
+    console.log(req.user._id)
     try {
 
         let product = await Inventory.find({ addBy: req.user._id })

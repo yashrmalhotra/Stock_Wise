@@ -2,7 +2,6 @@ import { React, useState } from 'react'
 import "../App.css"
 import { IoEyeOff } from 'react-icons/io5'
 import { IoIosEye } from "react-icons/io"
-const api = import.meta.env.VITE_API_URL
 const Signup = () => {
   let pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
   const [form, setForm] = useState({ name: "", username: "", email: "", address:"", colony:"", state:"", pincode:"", password: "" })
@@ -215,7 +214,7 @@ const Signup = () => {
       && newError.pincode === ""
       &&  newError.password === "" 
       && newError.confirmpassword === "") {
-    let res = await fetch(`${api}/user/signup`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) })
+    let res = await fetch(`api/user/signup`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) })
       let msg = await res.json()
       let objKeys = Object.keys(msg)
       console.log(msg)

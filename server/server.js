@@ -16,8 +16,7 @@ const port = process.env.PORT || 3000
 mongoose.connect(process.env.MONGODB_URL).then(() => { console.log("connected") })
 const app = express();
 app.use(cors({
-  origin: process.env.CLIENT_URL, // Your frontend URL,
-  methods:['GET','POST','PUT','DELETE'],
+  origin: "http://localhost:5173", // Your frontend URL,
   credentials: true // Allow cookies to be sent with requests
 }));
 app.use(cookieParser())
@@ -31,7 +30,7 @@ const dirname = path.dirname(filename);
 app.use(express.static(path.join(dirname,"dist")))
 app.use(express.static(path.join(dirname,'public')));
 
-app.get("/auth",(req,res)=>{
+app.get("/api/auth",(req,res)=>{
   if(!req.user){
     res.json({error:"please Login"})
   }else{
@@ -39,10 +38,9 @@ app.get("/auth",(req,res)=>{
   }
 })
 
-
-app.use("/user", router); // Use the router
-app.use("/product",productRoute)
-app.use("/buyer",buyerRoute)
+app.use("/api/user", router); // Use the router
+app.use("/api/product",productRoute)
+app.use("/api/buyer",buyerRoute)
 
 
 app.listen(port, () => {

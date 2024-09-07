@@ -56,6 +56,7 @@ router.post("/signup", async (req, res) => {
 })
 router.post("/login", async (req, res) => {
     const { username, password } = req.body
+    console.log(req.body)
     try {
         const user = await User.verifyAndGenerateToken(username, password)
         res.cookie("Token", user, {

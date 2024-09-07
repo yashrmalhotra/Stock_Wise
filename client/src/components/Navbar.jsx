@@ -7,7 +7,7 @@ const api = import.meta.env.VITE_API_URL
 const Navbar = () => {
   const [visible, setVisible] = useState(false)
   const logout = async ()=>{
-     await fetch(`${api}/user/logout`,{credentials:"include"})
+     await fetch(`api/user/logout`,{credentials:"include"})
      window.location.reload()
   }
 

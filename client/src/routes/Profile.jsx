@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import getUser from '../getUser'
 import { LiaEdit } from 'react-icons/lia'
 
-const api = import.meta.env.VITE_API_URL
 const Profile = () => {
     const navigate = useNavigate()
     const [user, setUser] = useState({})
@@ -15,7 +14,7 @@ const Profile = () => {
 
     let pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     const getDetails = async () => {
-        const res = await fetch(`${api}/user/profile`, { credentials: "include" })
+        const res = await fetch(`api/user/profile`, { credentials: "include" })
         const details = await res.json()
         setForm({ name: details.name,email:details.email,address: details.address, state: details.state, pincode: details.pincode })
         console.log(details, "details")
@@ -91,7 +90,7 @@ const Profile = () => {
         }
     }
     const handleEdit = async () => {
-        await fetch(`${api}/user`,{method:"PUT",headers:{"Content-Type":"application/json"},credentials:"include",body:JSON.stringify(form)})
+        await fetch(`api/user`,{method:"PUT",headers:{"Content-Type":"application/json"},credentials:"include",body:JSON.stringify(form)})
         setEdit(false)
        
     }

@@ -49,7 +49,7 @@ export const productSaveAndEdit = async (form, setError, setVisible, endpoint, M
     }
 
 
-    let res = await fetch(`${api}/product/${endpoint}`, { method: METHOD, body: data, credentials: "include" })
+    let res = await fetch(`api/product/${endpoint}`, { method: METHOD, body: data, credentials: "include" })
 
 
 
@@ -221,7 +221,7 @@ export const buyerSaveAndEdit = async (form, setBuyerError, setAddressError, set
   }
   if (newError.buyer_name === "" && newError.address === "" && newError.state === "" && newError.pincode === "") {
 
-    await fetch(`${api}/buyer`, { method: METHOD, headers: { "Content-type": "application/json" }, credentials: "include", body: JSON.stringify(form) })
+    await fetch(`api/buyer`, { method: METHOD, headers: { "Content-type": "application/json" }, credentials: "include", body: JSON.stringify(form) })
     if(METHOD==="PUT"){
         alert("Details are updated")
         navigate("/billing")

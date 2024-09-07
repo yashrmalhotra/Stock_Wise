@@ -12,9 +12,6 @@ import Navbar from '../components/Navbar';
 import { productSaveAndEdit } from "../saveAndEdit"
 import getUser from '../getUser';
 
-
-
-const api = import.meta.env.VITE_API_URL
 const Dshboard = () => {
   const [visible, setVisible] = useState(false)
   const [product, setProduct] = useState([])
@@ -41,7 +38,7 @@ const Dshboard = () => {
   const navigate = useNavigate();
 
   const getProducts = async () => {
-    let response = await fetch(`${api}/product?${params.toString()}`, { credentials: "include" })
+    let response = await fetch(`/api/product?${params.toString()}`, { credentials: "include" })
     let product = await response.json()
     let resArray = product.product
     console.log(product, "product")
@@ -174,7 +171,7 @@ const Dshboard = () => {
     }
     let c = confirm(`Are you sure you want to delete product`)
     if (c) {
-      await fetch(`${api}/product/delete`, { method: "DELETE", headers: { "Content-Type": "application/json" }, credentials: "include", body: JSON.stringify(fileAndid) })
+      await fetch(`api/product/delete`, { method: "DELETE", headers: { "Content-Type": "application/json" }, credentials: "include", body: JSON.stringify(fileAndid) })
       setProduct(product.filter((item) => item._id !== id))
     }
   }
@@ -203,7 +200,7 @@ const Dshboard = () => {
           updatedArray.push(newArray[i]._id)
         }
         let productList = { list: updatedArray }
-        let a = await fetch(`${api}/product/updateSelected`, { method: "PUT", headers: { "Content-Type": "application/json" }, credentials: "include", body: JSON.stringify(productList) })
+        let a = await fetch(`api/product/updateSelected`, { method: "PUT", headers: { "Content-Type": "application/json" }, credentials: "include", body: JSON.stringify(productList) })
         setProduct(newArray)
         break
       case "delete":
@@ -213,7 +210,7 @@ const Dshboard = () => {
           newArray = newArray.filter((item) => item.selected === true)
           console.log(newArray)
           setProduct(product.filter((item => item.selected === false)))
-          await fetch(`${api}/product/deleteSelected`, { method: "DELETE", headers: { "Content-Type": "application/json" }, credentials: "include", body: JSON.stringify(newArray) })
+          await fetch(`api/product/deleteSelected`, { method: "DELETE", headers: { "Content-Type": "application/json" }, credentials: "include", body: JSON.stringify(newArray) })
         }
         break
       case "lotohiprice":

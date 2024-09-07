@@ -8,13 +8,14 @@ import Product from "./routes/Product"
 import Billing from "./routes/Billing"
 import AddBuyer from "./routes/AddBuyer"
 import Profile from "./routes/Profile"
-const api = import.meta.env.VITE_API_URL
+
 function App() {
 
   const [user, setUser] = useState({})
   const getUser = async () => {
-    let res = await fetch(`${api}/auth`, { headers: { "Cache-control": "no-cache", Pragma: "no-cache" }, credentials: "include" })
+    let res = await fetch(`/api/auth`, { headers: { "Cache-control": "no-cache", Pragma: "no-cache" }, credentials: "include" })
     let cred = await res.json()
+    console.log(cred,"res")
     setUser(cred)
   }
   useEffect(() => {

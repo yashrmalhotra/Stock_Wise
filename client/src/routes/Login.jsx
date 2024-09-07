@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { IoEyeOff } from 'react-icons/io5'
 import { IoIosEye } from "react-icons/io"
 
-const api = import.meta.env.VITE_API_URL
 const Login = (props) => {
   let navigate = useNavigate()
   const [form, setForm] = useState({ username: '', password: '' })
@@ -32,7 +31,7 @@ const Login = (props) => {
       try {
 
 
-        let data = await fetch(`${api}/user/login`, {
+        let data = await fetch(`http://localhost:3000/api/user/login`, {
           method: "POST",
           credentials: "include",
           headers: {

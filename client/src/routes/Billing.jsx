@@ -23,14 +23,14 @@ const Billing = () => {
   const [defaultPrice, setDefaultprice] = useState(0)
   const [stock, setStock] = useState(0)
   const getProducts = async () => {
-    let response = await fetch(`${api}/product`, { credentials: "include" })
+    let response = await fetch(`/api/product`, { credentials: "include" })
     let product = await response.json()
     let resArray = product.product
     setProduct(resArray)
 
   }
   const getBuyers = async () => {
-    const res = await fetch(`${api}/buyer`, { credentials: "include" })
+    const res = await fetch(`/api/buyer`, { credentials: "include" })
     const buyers = await res.json()
     setBuyers(buyers)
   }
@@ -156,7 +156,7 @@ const Billing = () => {
 
   const generateInvoice = async () => {
     console.log(buyerDetails)
-    let res = await fetch(`${api}/buyer/generate-invoice`, { method: "POST", headers: { "Content-Type": "application/json" }, credentials: "include", body: JSON.stringify({ bill, buyerDetails, total }) })
+    let res = await fetch(`api/buyer/generate-invoice`, { method: "POST", headers: { "Content-Type": "application/json" }, credentials: "include", body: JSON.stringify({ bill, buyerDetails, total }) })
     let blob = await res.blob()
     const url = window.URL.createObjectURL(blob)
     const link = document.createElement("a")
