@@ -31,9 +31,6 @@ app.use(express.static(path.join(dirname,"dist")))
 app.use(express.static(path.join(dirname,'public')));
 
 app.get("/auth",(req,res)=>{
-  console.log(req.user)
-  const reqpath = req.path
-  console.log(reqpath,"req path")
   if(!req.user){
     res.json({error:"please Login"})
   }else{
