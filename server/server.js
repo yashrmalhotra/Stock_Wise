@@ -15,13 +15,14 @@ import "dotenv/config.js"
 const port = process.env.PORT || 3000
 mongoose.connect(process.env.MONGODB_URL).then(() => { console.log("connected") })
 const app = express();
+app.use(cors({
+  origin: process.env.CLIENT_URL, // Your frontend URL,
+  methods:['GET','POST','PUT','DELETE'],
+  credentials: true // Allow cookies to be sent with requests
+}));
 app.use(cookieParser())
 app.use(checkAuthenticate)
 app.use(express.json());
-app.use(cors({
-  origin: process.env.CLIENT_URL, // Your frontend URL
-  credentials: true // Allow cookies to be sent with requests
-}));
 
 
 
