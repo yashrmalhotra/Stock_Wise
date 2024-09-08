@@ -19,7 +19,7 @@ router.get("/", async (req, res) => {
 
 })
 
-router.post("/", async (req, res) => {
+router.post("/save", async (req, res) => {
 
     let { buyer_name, address, state, pincode } = req.body
     if (address === "") {
