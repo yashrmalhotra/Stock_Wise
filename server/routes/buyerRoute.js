@@ -197,7 +197,7 @@ router.post("/generate-invoice", async (req, res) => {
 
 })
 
-router.put("/", async (req, res) => {
+router.put("/edit", async (req, res) => {
     let { buyer_name, uid, address, state, pincode } = req.body
     if (address === "") {
         address = undefined
