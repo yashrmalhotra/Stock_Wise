@@ -363,7 +363,7 @@ const Dshboard = () => {
                   <div className={`${item.stock <= 10 ? "bg-red-300 " : "bg-white"} flex justify-center pr-[3px]`}><input type="checkbox" name="select" id="" onChange={(e) => { handleSelect(e, item._id) }} checked={item.selected} /></div>
                   <div className={`${item.stock <= 10 ? "bg-red-300 " : "bg-white"} flex justify-center items-center`}>
                     {item.file ?
-                      <img src={`http://localhost:3000/images/${item.file}`} className='w-20 h-[64px] object-contain' alt="product image" />
+                      <img src={`https://stock-wise-1.onrender.com/images/${item.file}`} className='w-20 h-[64px] object-contain' alt="product image" />
                       : <div className="w-20 h-[64px] bg-gray-400 flex items-center justify-center">No Image</div>}
                   </div>
                   <div className={`${item.stock <= 10 ? "bg-red-300 " : "bg-white"} px-2 h-[72px]`}>

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "netlify-cli": "^17.35.0",
     "pdfmake": "^0.2.12",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
