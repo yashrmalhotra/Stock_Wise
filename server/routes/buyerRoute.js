@@ -75,6 +75,7 @@ router.post("/generate-invoice", async (req, res) => {
     th{
         background-color: #1d4de8;
         color:white;
+        font-size:12px;
     }
     tr{
         background-color: white;
@@ -93,7 +94,7 @@ router.post("/generate-invoice", async (req, res) => {
     
    <div>
         <div style="margin-left:5px;">
-            <div style="font-weight:bold;font-size:25px; margin-top:20px;">${seller.name} <span style="font-size:15px; margin-left:550px; font-weight:normal;">Date:${formatedDate}</span></div>
+            <div style="font-weight:bold;font-size:25px; margin-top:20px;">${seller.name} <span style="font-size:15px; margin-left:400px; font-weight:normal;">Date:${formatedDate}</span></div>
             <div>${seller.address}</div>
             <div>${seller.state}</div>
             <div>${seller.pincode}</div>
@@ -198,7 +199,7 @@ router.post("/generate-invoice", async (req, res) => {
 
 })
 
-router.put("/", async (req, res) => {
+router.put("/edit", async (req, res) => {
     let { buyer_name, uid, address, state, pincode } = req.body
     if (address === "") {
         address = undefined
