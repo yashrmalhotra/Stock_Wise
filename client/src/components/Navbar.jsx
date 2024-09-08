@@ -33,7 +33,7 @@ const Navbar = () => {
           <NavLink to="/">
             <div className='flex items-center'>
               <span><img src="/images/inventory.png" width={"24px"} height={"24px"} alt="" /></span>
-              <span className='text-orange-300'>S</span>tock<span className='text-black'>W</span>ise
+              <span className='text-orange-300'>S</span>tock<span className='text-black'>W</span>ize
             </div>
           </NavLink>
         </div>

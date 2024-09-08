@@ -31,7 +31,7 @@ const Login = (props) => {
       try {
 
 
-        let data = await fetch(`http://localhost:3000/api/user/login`, {
+        let data = await fetch(`/api/user/login`, {
           method: "POST",
           credentials: "include",
           headers: {
