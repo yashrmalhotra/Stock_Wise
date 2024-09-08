@@ -6,7 +6,7 @@ const Product = () => {
   const [product, setProduct] = useState({})
   const navigate = useNavigate()
   const getDetails = async () => {
-    let res = await fetch(`api/product/${params.sku}`, { credentials: "include" })
+    let res = await fetch(`/api/product/${params.sku}`, { credentials: "include" })
     let data = await res.json()
     let keys = Object.keys(data)
 
@@ -27,7 +27,7 @@ const Product = () => {
     </div>
       <div className='flex flex-col w-full bg-slate-200 items-center py-2 h-[30vh]'>
         <div className="h-[180px] w-[180px] flex justify-center">
-          {product.file ? <img src={`api/images/${product.file}`} width={"220px"} height={"180px"} className='object-contain' alt="product" /> : <span className='h-full w-full bg-gray-500  flex items-center justify-center text-3xl font-bold '>No Image</span>}
+          {product.file ? <img src={`https://stock-wise-1.onrender.com/images/${product.file}`} width={"220px"} height={"180px"} className='object-contain' alt="product" /> : <span className='h-full w-full bg-gray-500  flex items-center justify-center text-3xl font-bold '>No Image</span>}
         </div>
       </div>
 

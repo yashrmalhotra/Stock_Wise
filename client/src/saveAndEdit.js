@@ -120,9 +120,6 @@ export const billSaveAndEdit = (form, setForm, setError, setVisible, bill, setBi
 
 
 
-
-
-
   }
 }
 
@@ -131,7 +128,7 @@ export const billSaveAndEdit = (form, setForm, setError, setVisible, bill, setBi
 
 
 
-export const buyerSaveAndEdit = async (form, setBuyerError, setAddressError, setStateError, setPincodeError, METHOD,navigate) => {
+export const buyerSaveAndEdit = async (form, setBuyerError, setAddressError, setStateError, setPincodeError, METHOD,navigate,endpoint) => {
   let newError = { buyer_name: "", address: "", state: "", pincode: "" }
   console.log("form",form)
   if (form.buyer_name === "") {
@@ -221,10 +218,11 @@ export const buyerSaveAndEdit = async (form, setBuyerError, setAddressError, set
   }
   if (newError.buyer_name === "" && newError.address === "" && newError.state === "" && newError.pincode === "") {
 
-    await fetch(`api/buyer/save`, { method: METHOD, headers: { "Content-type": "application/json" }, credentials: "include", body: JSON.stringify(form) })
+    await fetch(`/api/buyer/${endpoint}`, { method: METHOD, headers: { "Content-type": "application/json" }, credentials: "include", body: JSON.stringify(form) })
     if(METHOD==="PUT"){
         alert("Details are updated")
         navigate("/billing")
       }
+      window.location.reload()
   }
 }

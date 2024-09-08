@@ -139,7 +139,7 @@ const AddBuyer = () => {
 
     }
     const handleSave = () => {
-        buyerSaveAndEdit(form, setBuyerError, setAddressError, setStateError, setPincodeError, edit?"PUT":"POST",navigate)
+        buyerSaveAndEdit(form, setBuyerError, setAddressError, setStateError, setPincodeError, edit?"PUT":"POST",navigate,edit ? "edit":"save")
     }
     return (
         <div>
