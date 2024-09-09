@@ -31,7 +31,6 @@ app.use(express.static(path.join(dirname,"dist")))
 app.use(express.static(path.join(dirname,'public')));
 
 app.get("/api/auth",(req,res)=>{
-  console.log("Universal")
   if(!req.user){
     res.json({error:"please Login"})
   }else{
