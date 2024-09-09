@@ -75,7 +75,6 @@ router.get("/logout", (req, res) => {
     res.clearCookie("Token", {
         httpOnly: true, // Prevents JavaScript from accessing the cookie
         domain:"https://stockwize.netlify.app",
-        expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
         path:"/"
     })
     res.send("logged out")
