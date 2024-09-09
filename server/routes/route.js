@@ -66,7 +66,7 @@ router.post("/login", async (req, res) => {
         res.status(200).json({ message: "Founded" })
     } catch (err) {
         console.log(err)
-        res.status(404).json({ error: "Username or Password is wrong" })
+        res.json({ error: "Username or Password is wrong" })
     }
 })
 router.get("/logout", (req, res) => {

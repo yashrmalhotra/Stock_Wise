@@ -24,9 +24,6 @@ dist-ssr
 *.sw?
 node_modules
 .env
-C:\Users\user\OneDrive\Desktop\StockWise\server\public\images\mi voice remote-1724410325604.jpg
-C:\Users\user\OneDrive\Desktop\StockWise\server\public\images\nike-1725713828486.jpg
-C:\Users\user\OneDrive\Desktop\StockWise\server\public\images\puma-1725530212477.jpg
 
 # Local Netlify folder
 .netlify
