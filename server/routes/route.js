@@ -60,8 +60,10 @@ router.post("/login", async (req, res) => {
     try {
         const user = await User.verifyAndGenerateToken(username, password)
         res.cookie("Token", user, {
-            httpOnly: true, // Prevents JavaScript from accessing the cookie,
-            expires: new Date(Date.now() + 24 * 60 * 60 * 1000) // 1 day
+            httpOnly: true, // Prevents JavaScript from accessing the cookie
+            domain:"https://stockwize.netlify.app",
+            expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
+            path:"/"
         });
         res.status(200).json({ message: "Founded" })
     } catch (err) {
