@@ -61,7 +61,7 @@ router.post("/login", async (req, res) => {
         const user = await User.verifyAndGenerateToken(username, password)
         res.cookie("Token", user, {
             httpOnly: true, // Prevents JavaScript from accessing the cookie
-            domain:"https://stockwize.netlify.app",
+            domain:"stockwize.netlify.app",
             expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
             path:"/"
         });
@@ -74,7 +74,7 @@ router.post("/login", async (req, res) => {
 router.get("/logout", (req, res) => {
     res.clearCookie("Token", {
         httpOnly: true, // Prevents JavaScript from accessing the cookie
-        domain:"https://stockwize.netlify.app",
+        domain:"stockwize.netlify.app",
         path:"/"
     })
     res.send("logged out")
