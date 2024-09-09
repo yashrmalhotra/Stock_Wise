@@ -16,7 +16,7 @@ const port = process.env.PORT || 3000
 mongoose.connect(process.env.MONGODB_URL).then(() => { console.log("connected") })
 const app = express();
 app.use(cors({
-  origin: "*", // Your frontend URL,
+  origin: process.env.CLIENT_URL, // Your frontend URL,
   credentials: true // Allow cookies to be sent with requests
 }));
 app.use(cookieParser())
@@ -31,7 +31,6 @@ app.use(express.static(path.join(dirname,"dist")))
 app.use(express.static(path.join(dirname,'public')));
 
 app.get("/api/auth",(req,res)=>{
-  console.log("Universal")
   if(!req.user){
     res.json({error:"please Login"})
   }else{
