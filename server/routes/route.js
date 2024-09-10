@@ -63,14 +63,11 @@ router.post("/login", async (req, res) => {
             httpOnly: true, // Prevents JavaScript from accessing the cookie
             domain:"stockwize.netlify.app",
             expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
-<<<<<<< HEAD
             sameSite:"None",
-            path:"/"
-=======
             path:"/",
             sameSite:"None",
             secure:true
->>>>>>> 50622dd2d9b16d973c11290ecd1753d00d97895e
+
         });
         res.status(200).json({ message: "Founded" })
     } catch (err) {
@@ -81,16 +78,10 @@ router.post("/login", async (req, res) => {
 router.delete("/logout", (req, res) => {
     res.clearCookie("Token", {
         httpOnly: true, // Prevents JavaScript from accessing the cookie
-<<<<<<< HEAD
         domain:"https://stockwize.netlify.app",
         sameSite:"None",
-        path:"/"
-=======
-        domain:"stockwize.netlify.app",
-        path:"/",
-        sameSite:"None",
         secure:true
->>>>>>> 50622dd2d9b16d973c11290ecd1753d00d97895e
+
     })
     res.send("logged out")
 })
