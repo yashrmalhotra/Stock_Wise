@@ -63,9 +63,6 @@ router.post("/login", async (req, res) => {
             httpOnly: true, // Prevents JavaScript from accessing the cookie
             domain:"stockwize.netlify.app",
             expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
-            sameSite:"None",
-            path:"/",
-            sameSite:"None",
             secure:true
 
         });
@@ -78,9 +75,7 @@ router.post("/login", async (req, res) => {
 router.delete("/logout", (req, res) => {
     res.clearCookie("Token", {
         httpOnly: true, // Prevents JavaScript from accessing the cookie
-        domain:"https://stockwize.netlify.app",
-        sameSite:"None",
-        secure:true
+        domain:"https://stockwize.netlify.app"
 
     })
     res.send("logged out")
