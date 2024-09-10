@@ -6,9 +6,9 @@ import { RxCrossCircled } from "react-icons/rx";
 const api = import.meta.env.VITE_API_URL
 const Navbar = () => {
   const [visible, setVisible] = useState(false)
-  const logout = async ()=>{
-     await fetch(`api/user/logout`,{credentials:"include"})
-     window.location.reload()
+  const logout = async () => {
+    await fetch(`api/user/logout`, { method: "DELETE", headers: { "Content-Type": "application/json" }, credentials: "include" })
+    window.location.reload()
   }
 
   return (
@@ -18,12 +18,12 @@ const Navbar = () => {
           <RxCrossCircled size={45} />
         </button>
         <ul className='my-20'>
-        <Link to="/dashboard"> <li className='hover:bg-gray-200 p-2 border-[2px]  border-slate-200 cursor-pointer my-[1px] w-full'>Dashboard</li></Link>
-        <Link to="/billing"> <li className='hover:bg-gray-200 p-2 border-[2px]  border-slate-200 cursor-pointer my-[1px] w-full'>Billing</li></Link>
-        <Link to="/billing/addbuyer"> <li className='hover:bg-gray-200 p-2 border-[2px]  border-slate-200 cursor-pointer my-[1px] w-full'>Add Buyer</li></Link>
-        <Link to="/profile"> <li className='hover:bg-gray-200 p-2 border-[2px]  border-slate-200 cursor-pointer my-[1px] w-full'>Profie</li></Link>
+          <Link to="/dashboard"> <li className='hover:bg-gray-200 p-2 border-[2px]  border-slate-200 cursor-pointer my-[1px] w-full'>Dashboard</li></Link>
+          <Link to="/billing"> <li className='hover:bg-gray-200 p-2 border-[2px]  border-slate-200 cursor-pointer my-[1px] w-full'>Billing</li></Link>
+          <Link to="/billing/addbuyer"> <li className='hover:bg-gray-200 p-2 border-[2px]  border-slate-200 cursor-pointer my-[1px] w-full'>Add Buyer</li></Link>
+          <Link to="/profile"> <li className='hover:bg-gray-200 p-2 border-[2px]  border-slate-200 cursor-pointer my-[1px] w-full'>Profie</li></Link>
 
-        <button onClick={logout} className='absolute bottom-3 w-full bg-red-700 hover:bg-red-800 p-2 border-[2px] text-white border-slate-200'>Logout</button>
+          <button onClick={logout} className='absolute bottom-3 w-full bg-red-700 hover:bg-red-800 p-2 border-[2px] text-white border-slate-200'>Logout</button>
         </ul>
 
       </div>
