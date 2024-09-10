@@ -20,8 +20,6 @@ router.get("/", async (req, res) => {
 })
 
 router.post("/save", async (req, res) => {
-    console.log(req.body,"body")
-
     let { buyer_name, address, state, pincode } = req.body
     if (address === "") {
         address = undefined
@@ -47,14 +45,10 @@ router.post("/generate-invoice", async (req, res) => {
     let sno = 0;
     const seller = await User.findById(req.user._id)
     let arr = req.body.bill
-    console.log("arr", arr)
     let buyerDetails = req.body.buyerDetails
     let total = req.body.total
     const sales = Number(total.bill)
     const unit = Number(total.qty)
-    console.log(total)
-
-
     const date = new Date()
     const formatedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
     const html =
@@ -206,7 +200,6 @@ router.put("/edit", async (req, res) => {
         state = undefined
         pincode = undefined
     }
-    console.log(pincode)
 
     try {
         await Buyer.updateOne({ uid: uid }, {
