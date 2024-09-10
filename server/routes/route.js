@@ -56,7 +56,6 @@ router.post("/signup", async (req, res) => {
 })
 router.post("/login", async (req, res) => {
     const { username, password } = req.body
-    console.log(req.body)
     try {
         const user = await User.verifyAndGenerateToken(username, password)
         res.cookie("Token", user, {
@@ -70,9 +69,10 @@ router.post("/login", async (req, res) => {
     }
 })
 router.delete("/logout", (req, res) => {
+
+    console.log("cookies")
     res.clearCookie("Token", {
         httpOnly: true, // Prevents JavaScript from accessing the cookie
-        domain:"https://stockwize.netlify.app"
 
     })
     res.send("logged out")
