@@ -63,6 +63,7 @@ router.post("/login", async (req, res) => {
             httpOnly: true, // Prevents JavaScript from accessing the cookie
             domain:"https://stockwize.netlify.app",
             expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
+            sameSite:"None",
             path:"/"
         });
         res.status(200).json({ message: "Founded" })
@@ -71,11 +72,11 @@ router.post("/login", async (req, res) => {
         res.json({ error: "Username or Password is wrong" })
     }
 })
-router.get("/logout", (req, res) => {
+router.delete("/logout", (req, res) => {
     res.clearCookie("Token", {
         httpOnly: true, // Prevents JavaScript from accessing the cookie
         domain:"https://stockwize.netlify.app",
-        expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
+        sameSite:"None",
         path:"/"
     })
     res.send("logged out")
