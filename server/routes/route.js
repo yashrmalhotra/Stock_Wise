@@ -69,8 +69,6 @@ router.post("/login", async (req, res) => {
     }
 })
 router.delete("/logout", (req, res) => {
-
-    console.log("cookies")
     res.clearCookie("Token", {
         httpOnly: true, // Prevents JavaScript from accessing the cookie
 
