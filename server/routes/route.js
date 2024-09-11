@@ -61,6 +61,9 @@ router.post("/login", async (req, res) => {
         res.cookie("Token", user, {
             httpOnly: true, // Prevents JavaScript from accessing the cookie
             expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
+            domain:"stockwize.netlify.app",
+            secure:true,
+            path:"/"
         });
         res.status(200).json({ message: "Founded" })
     } catch (err) {
@@ -71,6 +74,9 @@ router.post("/login", async (req, res) => {
 router.delete("/logout", (req, res) => {
     res.clearCookie("Token", {
         httpOnly: true, // Prevents JavaScript from accessing the cookie
+         domain:"stockwize.netlify.app",
+         secure:true,
+         path:"/"
 
     })
     res.send("logged out")
