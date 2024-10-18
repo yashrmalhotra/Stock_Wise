@@ -27,7 +27,6 @@ app.use(express.json());
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
-app.use(express.static(path.join(dirname,"dist")))
 app.use(express.static(path.join(dirname,'public')));
 
 app.get("/api/auth",(req,res)=>{
