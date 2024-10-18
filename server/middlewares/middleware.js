@@ -9,3 +9,10 @@ export const checkAuthenticate = (req,res,next)=>{
         next()
     }
 }
+export const checkAuthorize = (req,res,next)=>{
+    if(req.user){
+        res.json({authorize:true})
+    }else{
+        res.json({error:"please login to access page"})
+    }
+}
